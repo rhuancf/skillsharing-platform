@@ -1,27 +1,25 @@
-import { useEffect, useState } from "react";
-import { User, UserArray } from "./types";
-import { supabase } from "./supabaseClient";
+import { Route } from "wouter";
+import { useState } from "react";
+import { SupabaseClient, createClient } from "@supabase/supabase-js";
+
+import Login from "./pages/login/Login";
+import Dashboard from "./pages/dashboard/Dashboard";
+
+const initialClient = createClient(import.meta.env.VITE_SUPABASE_URL, import.meta.env.VITE_SUPABASE_ANON_KEY)
 
 function App() {
-  const [users, setUsers] = useState([] as UserArray);
+  const [supabase, setSupabase] = useState<SupabaseClient>(initialClient);
 
-  useEffect(() => {
-    getCountries();
-  }, []);
-
-  async function getCountries() {
-    console.log(supabase);
-    const { data: users, error } = await supabase.from("users").select('*').eq("username", "rhuancf");
-    error ? console.log("error: ", error) : setUsers(users as UserArray);
+  function sessionHandler(supabase:SupabaseClient) {
+    setSupabase(supabase);
   }
-
+  
   return (
-    <ul>
-      {users.map((user:User) => (
-        <li key={user.id}>{user.username}</li>
-      ))}
-    </ul>
-  );
+    <>
+      <Route path="/" component={()=><Login sessionHandler={sessionHandler} supabase={initialClient}/>} />
+      <Route path="/dashboard" component={()=><Dashboard supabase={supabase as SupabaseClient}/>} />
+    </>
+  )
 }
 
 export default App;

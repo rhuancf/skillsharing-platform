@@ -1,31 +1,42 @@
-import { useEffect, useState } from "react";
-import { supabase } from "../../supabaseClient";
-import { ThemeSupa } from "@supabase/auth-ui-shared";
 import { Auth } from "@supabase/auth-ui-react";
+import { ThemeSupa } from "@supabase/auth-ui-shared";
+import { Session, SupabaseClient } from "@supabase/supabase-js";
+import { useEffect, useState } from "react";
+import { useLocation } from "wouter";
+import icon from "../../assets/icon2.png";
 import style from "./Login.module.css";
-import { Session } from "@supabase/supabase-js";
 
-function Login() {
+function Login(props: {
+  sessionHandler: (supabase: SupabaseClient) => void;
+  supabase: SupabaseClient;
+}) {
   const [session, setSession] = useState<Session | null>(null);
+  const [location, setLocation] = useLocation();
 
   useEffect(() => {
-    supabase.auth.getSession().then(({ data: { session } }) => {
+    props.supabase.auth.getSession().then(({ data: { session } }) => {
       setSession(session);
     });
     const {
       data: { subscription },
-    } = supabase.auth.onAuthStateChange((_event, session) => {
+    } = props.supabase.auth.onAuthStateChange((_event, session) => {
       setSession(session);
     });
 
     return () => subscription.unsubscribe();
   }, []);
 
+  props.sessionHandler(props.supabase);
+
   if (!session) {
     return (
       <div className={style.card}>
+        <div className={style["logo-container"]}>
+          <img className={style.icon} src={icon} />
+          <h1>Habilite+</h1>
+        </div>
         <Auth
-          supabaseClient={supabase}
+          supabaseClient={props.supabase}
           appearance={{ theme: ThemeSupa }}
           providers={["google", "facebook", "github"]}
           theme="dark"
@@ -67,12 +78,7 @@ function Login() {
       </div>
     );
   } else {
-    return (
-      <div>
-        <div>Logou, patrão!</div>
-        <button onClick={() => supabase.auth.signOut()}>Sign out</button>
-      </div>
-    );
+    setLocation("/dashboard/");
   }
 }
 
