@@ -11,7 +11,7 @@ function Login(props: {
   supabase: SupabaseClient;
 }) {
   const [session, setSession] = useState<Session | null>(null);
-  const [location, setLocation] = useLocation();
+  const [, setLocation] = useLocation();
 
   useEffect(() => {
     props.supabase.auth.getSession().then(({ data: { session } }) => {
