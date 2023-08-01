@@ -38,7 +38,7 @@ function Login(props: {
         <Auth
           supabaseClient={props.supabase}
           appearance={{ theme: ThemeSupa }}
-          providers={["google", "facebook", "github"]}
+          providers={["twitter", "github"]}
           theme="dark"
           localization={{
             variables: {
