@@ -80,6 +80,11 @@
   box-shadow: 0 0 0 2px rgb(197, 184, 184) !important;
 }
 
+.swal2-popup {
+  border: 1px solid grey !important;
+  border-radius: 9px !important;
+}
+
 body {
   margin: 0;
   display: flex;
