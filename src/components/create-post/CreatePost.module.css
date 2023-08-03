@@ -3,14 +3,14 @@
   flex-direction: column;
   justify-content: center;
   padding: 20px;
-  background-color: var(--colors-defaultButtonBackground);
-  border: 1px solid var(--colors-defaultButtonBorder);
+  background-color: var(--colors-customBackground);
+  border: 1px solid var(--colors-customBorder);
   border-radius: 9px;
   margin: 20px;
 }
 
 .container:hover:not(:disabled) {
-  background-color: var(--colors-defaultButtonBackgroundHover);
+  background-color: var(--colors-customBackgroundHover);
 }
 
 .h2 {
