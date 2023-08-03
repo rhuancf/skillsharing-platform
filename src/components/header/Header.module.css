@@ -7,7 +7,53 @@
 
 .header-container {
   display: flex;
+  justify-content: space-between;
   height: 80px;
   width: 100%;
   background-color: var(--button-primary-color);
+}
+
+.logo-container {
+  display: flex;
+}
+
+.logout-container {
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
+}
+
+.email-label {
+  line-height: 1.5;
+  font-weight: 400;
+  font-family: var(--fonts-labelFontFamily);
+  font-size: var(--fontSizes-baseLabelSize);
+  margin-bottom: var(--space-labelBottomMargin);
+  color: var(--colors-inputLabelText);
+  display: block;
+}
+
+.logout-button {
+  width: 100px;
+  align-self: center;
+  font-family: var(--fonts-buttonFontFamily);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radii-borderRadiusButton);
+  font-size: var(--fontSizes-baseButtonSize);
+  padding: var(--space-buttonPadding);
+  cursor: pointer;
+  border-width: var(--borderWidths-buttonBorderWidth);
+  border-style: solid;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 100ms;
+  color: var(--colors-defaultButtonText);
+  border-color: var(--colors-inputBorderFocus);
+  background-color: var(--colors-customBackground);
+  height:30px;
+}
+
+.logout-button:hover {
+  background-color: var(--colors-customBackgroundHover);
 }
