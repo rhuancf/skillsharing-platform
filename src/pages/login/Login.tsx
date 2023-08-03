@@ -3,7 +3,7 @@ import { ThemeSupa } from "@supabase/auth-ui-shared";
 import { Session, SupabaseClient } from "@supabase/supabase-js";
 import { useEffect, useState } from "react";
 import { useLocation } from "wouter";
-import icon from "../../assets/icon2.png";
+import icon from "../../assets/logo-icon.png";
 import style from "./Login.module.css";
 
 function Login(props: {

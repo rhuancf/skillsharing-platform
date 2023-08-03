@@ -1,5 +1,5 @@
 import style from './Header.module.css';
-import icon from '../../assets/icon2.png';
+import icon from '../../assets/logo-icon.png';
 
 
 const Header = (props:{currentUser: string | undefined, onLogout: () => void}) => {
