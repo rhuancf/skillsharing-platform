@@ -58,6 +58,28 @@
   --colors-inputPlaceholder: darkgray !important;
 }
 
+.swal2-confirm{
+  font-family: var(--fonts-buttonFontFamily);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border-radius: var(--radii-borderRadiusButton);
+  font-size: var(--fontSizes-baseButtonSize);
+  padding: var(--space-buttonPadding);
+  cursor: pointer;
+  border-width: var(--borderWidths-buttonBorderWidth);
+  border-style: solid;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 100ms;
+  background-color: var(--colors-brand);
+  color: var(--colors-brandButtonText);
+  border-color: var(--colors-brandAccent);
+}:focus {
+  border: none !important;
+  box-shadow: 0 0 0 2px rgb(197, 184, 184) !important;
+}
+
 body {
   margin: 0;
   display: flex;

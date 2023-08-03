@@ -14,6 +14,7 @@ export default function Dashboard(props: { supabase: SupabaseClient }) {
 
   useEffect(() => {
     getUserData();
+    getPosts();
   }, []);
 
   async function getUserData() {
@@ -77,12 +78,6 @@ export default function Dashboard(props: { supabase: SupabaseClient }) {
           />
         ))}
       </div>
-      <button className={styles["logout-button"]} onClick={logoutHandler}>
-        Sign out
-      </button>
-      <button className={styles["logout-button"]} onClick={getPosts}>
-        Fetch Posts
-      </button>
     </div>
   );
 }

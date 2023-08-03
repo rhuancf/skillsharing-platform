@@ -6,13 +6,6 @@
   width: 1080px;
 }
 
-.logout-button {
-  margin: 20px;
-  width: 100px;
-  background-color: var(--colors-brand);
-  border-radius: 4px;
-}
-
 @media screen and (max-width: 1080px) {
   .dashboard-container {
     width: 100vw;

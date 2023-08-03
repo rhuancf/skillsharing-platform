@@ -84,3 +84,7 @@
   color: var(--colors-brandButtonText);
   border-color: var(--colors-brandAccent);
 }
+
+.button:hover {
+  background-color: var(--colors-brandAccent);
+}
