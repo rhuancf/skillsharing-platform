@@ -1,4 +1,4 @@
-import { Route } from "wouter";
+import { Route, Switch } from "wouter";
 import { useState } from "react";
 import { SupabaseClient, createClient } from "@supabase/supabase-js";
 
@@ -15,10 +15,11 @@ function App() {
   }
   
   return (
-    <>
+    <Switch>
       <Route path="/" component={()=><Login sessionHandler={sessionHandler} supabase={initialClient}/>} />
       <Route path="/dashboard" component={()=><Dashboard supabase={supabase as SupabaseClient}/>} />
-    </>
+      <Route component={()=><Dashboard supabase={supabase as SupabaseClient}/>} />
+    </Switch>
   )
 }
 
