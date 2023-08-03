@@ -11,6 +11,8 @@
 
 .container:hover:not(:disabled) {
   background-color: var(--colors-customBackgroundHover);
+  border-color: var(--colors-inputBorderFocus);
+  outline: none;
 }
 
 .h2 {

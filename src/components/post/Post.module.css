@@ -1,0 +1,60 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 20px;
+  background-color: var(--colors-customBackground);
+  border: 1px solid var(--colors-customBorder);
+  border-radius: 9px;
+  margin: 20px;
+}
+
+.container:hover:not(:disabled) {
+  border-color: var(--colors-inputBorderFocus);
+  outline: none;
+}
+
+.title-container {
+  display:flex;
+  justify-content: space-between;
+}
+
+.h2 {
+  margin: 0px;
+  width: 50%;
+}
+
+.delete-button {
+  font-family: var(--fonts-buttonFontFamily);
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  border-width: var(--borderWidths-buttonBorderWidth);
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 100ms;
+  color: var(--colors-messageTextDanger);
+}
+
+.text-area {
+  font-family: var(--fonts-inputFontFamily);
+  background: var(--colors-inputBackground);
+  border-radius: var(--radii-inputBorderRadius);
+  padding: var(--space-inputPadding);
+  cursor: text;
+  border-width: var(--borderWidths-inputBorderWidth);
+  border-color: var(--colors-inputBorder);
+  border-style: solid;
+  font-size: var(--fontSizes-baseInputSize);
+  width: 100%;
+  color: var(--colors-inputText);
+  box-sizing: border-box;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 100ms;
+  letter-spacing: 0px;
+  resize:vertical;
+  margin-bottom: 20px;
+  min-height: 150px;
+}:focus {
+  border-color: var(--colors-inputBorderFocus);
+  outline: none;
+}
