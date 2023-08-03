@@ -54,6 +54,7 @@
   resize:vertical;
   margin-bottom: 20px;
   min-height: 150px;
+  white-space: pre-wrap;
 }:focus {
   border-color: var(--colors-inputBorderFocus);
   outline: none;
