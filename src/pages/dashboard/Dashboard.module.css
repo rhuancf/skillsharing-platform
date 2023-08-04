@@ -6,6 +6,16 @@
   width: 1080px;
 }
 
+.divider {
+  color: rgba(255, 255, 255, 0.87);
+  background: var(--colors-dividerBackground);
+  display: block;
+  margin: 16px 0px;
+  height: 1px;
+  width: 90%;
+  align-self: center;
+}
+
 @media screen and (max-width: 1080px) {
   .dashboard-container {
     width: 100vw;

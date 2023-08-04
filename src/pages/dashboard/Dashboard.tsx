@@ -81,6 +81,8 @@ export default function Dashboard(props: { supabase: SupabaseClient }) {
     <div className={styles["dashboard-container"]}>
       <Header currentUser={userData?.email} onLogout={logoutHandler}/>
       <CreatePost onCreatePost={createPostHandler} />
+      <span className={styles.divider}></span>
+      <h2>Descubra:</h2>
       <div>
         {posts.map((post) => (
           <Post
