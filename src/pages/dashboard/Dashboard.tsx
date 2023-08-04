@@ -11,11 +11,17 @@ export default function Dashboard(props: { supabase: SupabaseClient }) {
   const [, setLocation] = useLocation();
   const [posts, setPosts] = useState([] as PostArray);
   const [userData, setUserData] = useState({} as User | null);
+  const [range, setRange] = useState(9);
+  const [filter, setFilter] = useState('');
 
   useEffect(() => {
     getUserData();
-    getPosts();
+    handleScroll();
   }, []);
+
+  useEffect(() => {
+    getPosts();
+  }, [range, filter])
 
   async function getUserData() {
     const { data } = await props.supabase.auth.getUser();
@@ -25,7 +31,10 @@ export default function Dashboard(props: { supabase: SupabaseClient }) {
   async function getPosts() {
     const { data: posts, error } = await props.supabase
       .from("posts")
-      .select("*");
+      .select("*")
+      .like('message', `%${filter}%`)
+      .range(0, range)
+      .order('id', { ascending: false });
     error ? console.log("error: ", error) : setPosts(posts);
     console.log(posts);
   }
@@ -33,6 +42,14 @@ export default function Dashboard(props: { supabase: SupabaseClient }) {
   if (!props.supabase) {
     setLocation("/");
   }
+
+  const handleScroll = () => {
+    window.onscroll = function() {
+        if ((window.innerHeight + Math.ceil(window.pageYOffset)) >= document.body.offsetHeight) {
+            setRange((range)=> range +10 );
+        }
+    }
+  };
 
   async function createPostHandler(title: string, message: string) {
     const { error } = await props.supabase

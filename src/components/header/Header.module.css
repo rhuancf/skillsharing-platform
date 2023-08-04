@@ -58,11 +58,11 @@
   background-color: var(--colors-customBackgroundHover);
 }
 
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 485px) {
   .logo {
     display: none;
   }
-  
+
   .email-label {
     font-size: 12px;
   }
