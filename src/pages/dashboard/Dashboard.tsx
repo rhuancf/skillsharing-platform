@@ -12,7 +12,7 @@ export default function Dashboard(props: { supabase: SupabaseClient }) {
   const [posts, setPosts] = useState([] as PostArray);
   const [userData, setUserData] = useState({} as User | null);
   const [range, setRange] = useState(9);
-  const [filter, setFilter] = useState('');
+  const [filter, ] = useState('');
 
   useEffect(() => {
     getUserData();
