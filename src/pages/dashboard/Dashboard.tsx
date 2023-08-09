@@ -40,7 +40,7 @@ export default function Dashboard(props: { supabase: SupabaseClient }) {
     console.log(posts);
   }
 
-  if (!props.supabase) {
+  if (!userData) {
     setLocation("/");
   }
 
