@@ -11,16 +11,17 @@ export default function Search(props:{onSearch:(value:string)=>void}) {
     }
   }
 
-  function clickHandler() {
+  function submitHandler(event: React.FormEvent<HTMLFormElement> | React.KeyboardEvent<HTMLInputElement>) {
+    event.preventDefault();
     if(inputRef.current?.value.length) {
       props.onSearch(inputRef.current.value);
     }
   }
 
   return (
-    <form className={styles.form} action="">
-      <input className={styles.input} type="search" ref={inputRef} required />
-      <i className={styles.fa} onClick={clickHandler}><MagnifyingGlass size={20} /></i>
+    <form className={styles.form} onSubmit={submitHandler}>
+      <input className={styles.input} type="search" ref={inputRef} onKeyDown={(e) => e.key === "Enter" && submitHandler(e)} required />
+      <button type="submit" className={styles.fa}><MagnifyingGlass size={20} /></button>
       <a className={styles["clear-btn"]} onClick={clearHandler}>Limpar</a>
     </form>
   );

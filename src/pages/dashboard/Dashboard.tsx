@@ -6,7 +6,7 @@ import Header from "../../components/header/Header";
 import styles from "./Dashboard.module.css";
 import CreatePost from "../../components/create-post/CreatePost";
 import Post from "../../components/post/Post";
-import Search from "../../components/search/search";
+import Search from "../../components/search/Search";
 
 export default function Dashboard(props: { supabase: SupabaseClient }) {
   const [, setLocation] = useLocation();
