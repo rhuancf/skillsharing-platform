@@ -6,13 +6,14 @@ import Header from "../../components/header/Header";
 import styles from "./Dashboard.module.css";
 import CreatePost from "../../components/create-post/CreatePost";
 import Post from "../../components/post/Post";
+import Search from "../../components/search/search";
 
 export default function Dashboard(props: { supabase: SupabaseClient }) {
   const [, setLocation] = useLocation();
   const [posts, setPosts] = useState([] as PostArray);
   const [userData, setUserData] = useState({} as User | null);
   const [range, setRange] = useState(9);
-  const [filter, ] = useState('');
+  const [filter, setFilter] = useState('');
 
   useEffect(() => {
     getUserData();
@@ -77,12 +78,19 @@ export default function Dashboard(props: { supabase: SupabaseClient }) {
     error ? console.log("error: ", error) : getPosts();
   }
 
+  function searchHandler(searchParam: string) {
+    setFilter(searchParam);
+  }
+
   return (
     <div className={styles["dashboard-container"]}>
       <Header currentUser={userData?.email} onLogout={logoutHandler}/>
       <CreatePost onCreatePost={createPostHandler} />
       <span className={styles.divider}></span>
-      {/* <h2>Descubra:</h2> */}
+      <div className={styles["search-container"]}>
+        <h2>Descubra:</h2>
+        <Search onSearch={searchHandler}/>
+      </div>
       <div>
         {posts.map((post) => (
           <Post

@@ -16,6 +16,19 @@
   align-self: center;
 }
 
+.search-container {
+  display: flex;
+  align-items: center;
+  background-color: var(--button-primary-color);
+  border: 1px solid var(--colors-customBorder);
+  padding: 0px 20px;
+}
+
+.search-container:hover {
+  border-color: var(--colors-inputBorderFocus);
+  outline: none;
+}
+
 @media screen and (max-width: 1080px) {
   .dashboard-container {
     width: 100vw;
