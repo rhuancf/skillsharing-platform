@@ -10,6 +10,8 @@ const CreatePost = (props: {
   function clickHandler() {
     if (titleRef.current?.value.length && messageRef.current?.value.length) {
       props.onCreatePost(titleRef.current.value, messageRef.current.value);
+      titleRef.current.value = '';
+      messageRef.current.value = '';
     }
   }
 
