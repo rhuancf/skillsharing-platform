@@ -18,8 +18,12 @@ const CreatePost = (props: {
     }
   }
 
-  if(!props.display) {
-    return <h1 className={styles.h1} onClick={()=>props.setDisplay(true)}>Compartilhar um novo conhecimento {<PlusCircle className={styles.plusIcon} size={20} />}</h1>
+  if (!props.display) {
+    return (
+      <div className={`${styles.container} ${styles.pointer}`} onClick={()=>props.setDisplay(true)}>
+        <h1 style={{margin: "0px"}}>Compartilhar um novo conhecimento {<PlusCircle className={styles.plusIcon} size={20} />}</h1>
+      </div>
+    );
   }
 
   return (
