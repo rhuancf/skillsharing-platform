@@ -19,6 +19,20 @@
   margin: 0px 0px 20px 0px;
 }
 
+.h1 {
+  margin: 20px 0px 0px 20px;
+  cursor: pointer;
+}
+.plusIcon {
+  margin-left: 10px;
+  scale: 1.5;
+}
+
+.share-tile-container {
+  display: flex;
+  justify-content: space-between;
+}
+
 .input {
   font-family: var(--fonts-inputFontFamily);
   background: var(--colors-inputBackground);

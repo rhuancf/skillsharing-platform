@@ -14,6 +14,7 @@ export default function Dashboard(props: { supabase: SupabaseClient }) {
   const [userData, setUserData] = useState({} as User | null);
   const [range, setRange] = useState(9);
   const [filter, setFilter] = useState('');
+  const [displayCreatePost, setDisplayCreatePost] = useState(false);
 
   useEffect(() => {
     getUserData();
@@ -65,6 +66,7 @@ export default function Dashboard(props: { supabase: SupabaseClient }) {
       ]);
 
     error ? console.log("error: ", error) : setPosts(posts);
+    setDisplayCreatePost(false);
     getPosts();
   }
 
@@ -85,7 +87,7 @@ export default function Dashboard(props: { supabase: SupabaseClient }) {
   return (
     <div className={styles["dashboard-container"]}>
       <Header currentUser={userData?.email} onLogout={logoutHandler}/>
-      <CreatePost onCreatePost={createPostHandler} />
+      <CreatePost onCreatePost={createPostHandler} display={displayCreatePost} setDisplay={setDisplayCreatePost}/>
       <span className={styles.divider}></span>
       <div className={styles["search-container"]}>
         <h2>Descubra:</h2>
